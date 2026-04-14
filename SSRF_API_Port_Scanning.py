@@ -32,12 +32,12 @@ def check_port(session, port):
 def main():
     session = requests.Session()
     open_ports = []
-    print(f"[*] SSRF port scan su {TARGET}\n")
+    print(f"[*] SSRF port scan on {TARGET}\n")
     for port in PORTS:
         is_open, message = check_port(session, port)
         if is_open:
             open_ports.append((port, message))
-        print(f"\n[+] Porte aperte trovate: {len(open_ports)}")
+        print(f"\n[+] Open ports found: {len(open_ports)}")
     for port, msg in open_ports:
         print(f" -> {port} | content length: {len(str(msg))} chars")
 
